@@ -18,7 +18,7 @@ class StudentService {
 
     static create(student) {
         return new Promise((resolve, reject) => {
-            StudentService.connect.query(`INSERT INTO students(name, class, scoreTheory, evaluate, scorePractice, description) VALUES ('${student.name}', '${student.class}', ${student.scoreTheory}, '${student.evaluate}', ${student.scorePractice}, '${student.description}')`, (err, data) => {
+            StudentService.connect.query(`INSERT INTO studentmanager.students(name, class, scoreTheory, evaluate, scorePractice, description) VALUES ('${student.name}', '${student.class}', ${student.scoreTheory}, '${student.evaluate}', ${student.scorePractice}, '${student.description}')`, (err, data) => {
                  if (err) {
                      reject(err);
                  }
@@ -31,7 +31,7 @@ class StudentService {
 
     static remove(id) {
         return new Promise((resolve, reject) => {
-            StudentService.connect.query(`DELETE FROM students WHERE id = ${id}`, (err) => {
+            StudentService.connect.query(`DELETE FROM studentmanager.students WHERE id = ${id}`, (err) => {
                  if (err) {
                      reject(err);
                  }

@@ -71,7 +71,9 @@ class StudentRouting {
                 }
                 else {
                     const student = qs.parse(data);
+                    console.log(student);
                     const mess = await StudentService.findByNameContaining(student.search);
+                    l
                     fs.readFile('./views/home.html', 'utf-8', (err, searchHtml) => {
                         if (err) {
                             console.log(err);
