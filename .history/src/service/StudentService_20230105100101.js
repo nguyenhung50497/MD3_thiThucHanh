@@ -70,7 +70,7 @@ class StudentService {
 
     static findByNameContaining(name) {
         return new Promise((resolve, reject) => {
-            StudentService.connect.query(`SELECT * FROM studentmanager.students WHERE name LIKE '%${name}%'`, (err, students) => {
+            connect.query(`SELECT * FROM studentmanager.students WHERE name LIKE '%${name}%'`, (err, students) => {
                  if (err) {
                      reject(err);
                  }
@@ -81,9 +81,23 @@ class StudentService {
         })
     }
 
-    static sortScoreByPraticeUP() {
+    static editImage(image, id) {
+        let connect = connection.getConnection();
         return new Promise((resolve, reject) => {
-            StudentService.connect.query('SELECT * FROM students ORDER BY scorePractice', (err, students) => {
+            connect.query(`UPDATE studentmanager.students SET image = '${image}' WHERE id = ${id}`,(err, data) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(data)
+                }
+            })
+        })
+    }
+
+    static sortScoreByPraticeUP() {
+        let connect = connection.getConnection();
+        return new Promise((resolve, reject) => {
+           connect.query('SELECT * FROM students ORDER BY scorePractice', (err, students) => {
                 if (err) {
                     reject(err);
                 }
@@ -95,8 +109,9 @@ class StudentService {
     }
 
     static sortScoreByPraticeDown() {
+        let connect = connection.getConnection();
         return new Promise((resolve, reject) => {
-            StudentService.connect.query('SELECT * FROM students ORDER BY scorePractice DESC', (err, students) => {
+           connect.query('SELECT * FROM students ORDER BY scorePractice DESC', (err, students) => {
                 if (err) {
                     reject(err);
                 }
@@ -108,8 +123,9 @@ class StudentService {
     }
 
     static sortScoreByTheoryUP() {
+        let connect = connection.getConnection();
         return new Promise((resolve, reject) => {
-            StudentService.connect.query('SELECT * FROM students ORDER BY scoreTheory', (err, students) => {
+           connect.query('SELECT * FROM students ORDER BY scoreTheory', (err, students) => {
                 if (err) {
                     reject(err);
                 }
@@ -121,8 +137,9 @@ class StudentService {
     }
 
     static sortScoreByTheoryDown() {
+        let connect = connection.getConnection();
         return new Promise((resolve, reject) => {
-            StudentService.connect.query('SELECT * FROM students ORDER BY scoreTheory DESC', (err, students) => {
+           connect.query('SELECT * FROM students ORDER BY scoreTheory DESC', (err, students) => {
                 if (err) {
                     reject(err);
                 }
