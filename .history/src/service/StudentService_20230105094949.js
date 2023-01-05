@@ -130,7 +130,7 @@ class StudentService {
     static sortScoreByTheoryUP() {
         let connect = connection.getConnection();
         return new Promise((resolve, reject) => {
-           connect.query('SELECT * FROM students ORDER BY scoreTheory', (err, students) => {
+           connect.query('SELECT * FROM students ORDER BY scorePTheory', (err, students) => {
                 if (err) {
                     reject(err);
                 }

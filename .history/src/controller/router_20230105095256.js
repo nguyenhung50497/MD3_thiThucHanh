@@ -9,7 +9,7 @@ const handler = {
     "student/sortScoreByPracticeUP": StudentRouting.sortScoreByPracticeUP,
     "student/sortScoreByPracticeDown": StudentRouting.sortScoreByPracticeDown,
     "student/sortScoreByTheoryUp": StudentRouting.sortScoreByTheoryUp,
-    "student/sortScoreByTheoryDown": StudentRouting.sortScoreByTheoryDown
+    "student/sortScoreByTheoryDown": StudentRouting.sortScoreByTheoryUp,
 }
 
 module.exports = handler;

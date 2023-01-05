@@ -6,10 +6,7 @@ const handler = {
     "student/delete": StudentRouting.deleteStudent,
     "student/edit": StudentRouting.editStudent,
     "student/upload": StudentRouting.showFormUpLoad,
-    "student/sortScoreByPracticeUP": StudentRouting.sortScoreByPracticeUP,
-    "student/sortScoreByPracticeDown": StudentRouting.sortScoreByPracticeDown,
-    "student/sortScoreByTheoryUp": StudentRouting.sortScoreByTheoryUp,
-    "student/sortScoreByTheoryDown": StudentRouting.sortScoreByTheoryDown
+    "student/sortScoreByPractice": StudentRouting.sortByPractice
 }
 
 module.exports = handler;

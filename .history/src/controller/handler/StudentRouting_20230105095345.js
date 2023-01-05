@@ -272,7 +272,7 @@ class StudentRouting {
         }
     }
 
-    static sortScoreByTheoryDown(req, res) {
+    static sortScoreByTheoryUp(req, res) {
         if (req.method === 'GET') {
             fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
                 if (err) {

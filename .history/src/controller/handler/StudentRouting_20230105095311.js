@@ -238,14 +238,14 @@ class StudentRouting {
         }
     }
     
-    static sortScoreByPracticeDown(req, res) {
+    static sortScoreByPracticeUP(req, res) {
         if (req.method === 'GET') {
             fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    let students = await StudentService.sortScoreByPraticeDown();
+                    let students = await StudentService.sortScoreByPraticeUP();
                     homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
                     res.writeHead(200, 'text/html');
                     res.write(homeHtml);
@@ -255,14 +255,14 @@ class StudentRouting {
         }
     }
 
-    static sortScoreByTheoryUp(req, res) {
+    static sortScoreByPracticeUP(req, res) {
         if (req.method === 'GET') {
             fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    let students = await StudentService.sortScoreByTheoryUP();
+                    let students = await StudentService.sortScoreByPraticeUP();
                     homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
                     res.writeHead(200, 'text/html');
                     res.write(homeHtml);
@@ -272,14 +272,14 @@ class StudentRouting {
         }
     }
 
-    static sortScoreByTheoryDown(req, res) {
+    static sortScoreByPracticeUP(req, res) {
         if (req.method === 'GET') {
             fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    let students = await StudentService.sortScoreByTheoryDown();
+                    let students = await StudentService.sortScoreByPraticeUP();
                     homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
                     res.writeHead(200, 'text/html');
                     res.write(homeHtml);

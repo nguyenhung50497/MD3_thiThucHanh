@@ -221,14 +221,14 @@ class StudentRouting {
         }
     }
 
-    static sortScoreByPracticeUP(req, res) {
+    static sortScoreByPractice(req, res) {
         if (req.method === 'GET') {
             fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    let students = await StudentService.sortScoreByPraticeUP();
+                    let students = await StudentService.findAll();
                     homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
                     res.writeHead(200, 'text/html');
                     res.write(homeHtml);
@@ -238,56 +238,6 @@ class StudentRouting {
         }
     }
     
-    static sortScoreByPracticeDown(req, res) {
-        if (req.method === 'GET') {
-            fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    let students = await StudentService.sortScoreByPraticeDown();
-                    homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
-                    res.writeHead(200, 'text/html');
-                    res.write(homeHtml);
-                    res.end();
-                }
-            });
-        }
-    }
-
-    static sortScoreByTheoryUp(req, res) {
-        if (req.method === 'GET') {
-            fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    let students = await StudentService.sortScoreByTheoryUP();
-                    homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
-                    res.writeHead(200, 'text/html');
-                    res.write(homeHtml);
-                    res.end();
-                }
-            });
-        }
-    }
-
-    static sortScoreByTheoryDown(req, res) {
-        if (req.method === 'GET') {
-            fs.readFile('./views/sortScoreByPractice.html', 'utf-8', async (err, homeHtml) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    let students = await StudentService.sortScoreByTheoryDown();
-                    homeHtml = StudentRouting.getHomeHtml(homeHtml, students);
-                    res.writeHead(200, 'text/html');
-                    res.write(homeHtml);
-                    res.end();
-                }
-            });
-        }
-    }
 }
 
 module.exports = StudentRouting;
